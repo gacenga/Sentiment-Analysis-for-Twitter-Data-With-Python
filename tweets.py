@@ -7,7 +7,7 @@ access_token=  '1409944852645789698-YB64cQzmXeqDkmJut8R9obhAPSE8P'
 access_token_secret = 'VNUr6Sg87FEa63N9qjlX0EfGs0QDPpPI3sQCCZjFCoUs'
 
 auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token, access_token_secret)
-api = API(auth)
+api = tweepy.API(auth)
 
 def collect_tweets(query, count=90):
     tweets = tweepy.Cursor(api.search_tweets, q=query, lang="en", tweet_mode="extended").items(count)
