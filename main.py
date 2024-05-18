@@ -3,7 +3,7 @@ import clean_tweets
 import sentiment_analysis
 import visualize_sentiments
 
-tweet = tweets.collect_tweets('2023 Toyota Probox Van NHP160V', 200)
+tweet = tweets.collect_tweets('2023 Toyota Probox Van NHP160V', 20)
 tweet['clean_text'] = tweet['text'].apply(vlean_tweets.clean_tweets)
 tweet['sentiment'] = tweet['clean_text'].apply(sentiment_analysis.get_sentiment)
 
