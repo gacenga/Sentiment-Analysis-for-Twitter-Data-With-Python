@@ -2,10 +2,10 @@ import pandas as pd
 import tweepy
 
 def collect_tweets(query, count=90):
-    consumer_key = '9ZtFvX432wt1F6N4S1jOMdgWD'
-    consumer_secret  ='mXnh4lUWzr9dfqrmtyuGUrsJ0CDjv08vZbNXbmr44KSs0k08hp'
-    access_token=  '1409944852645789698-YB64cQzmXeqDkmJut8R9obhAPSE8P'
-    access_token_secret = 'VNUr6Sg87FEa63N9qjlX0EfGs0QDPpPI3sQCCZjFCoUs'
+    consumer_key = 'BZSnsRgJsaqU8jdiYpdovr4dg'
+    consumer_secret = 'iJsAycQ9SXztmvdOTzy7pqYhZ7kS342lsx9fCd9pMdlgwLaupQ'
+    access_token = '1409944852645789698-sbrVkKIPUcUkYVlTMOTeVy92tut8Dz'
+    access_token_secret = 'DSQcncPKff5UviVkzUIdOyJbaIx3li6taa2PbSeqvaoK6'
     auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token, access_token_secret)
     api = tweepy.API(auth)
     tweets = tweepy.Cursor(api.search_tweets, q=query, lang="en", tweet_mode="extended").items(count)
