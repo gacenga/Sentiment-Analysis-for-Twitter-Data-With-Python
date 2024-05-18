@@ -12,5 +12,5 @@ api = API(auth)
 def collect_tweets(query, count=90):
     tweets = tweepy.Cursor(api.search_tweets, q=query, lang="en", tweet_mode="extended").items(count)
     tweet_data = [[tweet.full_text, tweet.created_at, tweet.user.screen_name] for tweet in tweets]
-    df = pd.DataFrame(tweet_data, columns=['text', 'time_created', 'user']
+    df = pd.DataFrame(tweet_data, columns=['text', 'time_created', 'user'])
     return df
