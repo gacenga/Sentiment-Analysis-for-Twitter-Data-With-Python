@@ -15,5 +15,5 @@ try:
     sentiment_time = tweet['sentiment'].resample('H').value_counts().unstack().fillna(0)
 
     visualize_sentiments.sentiment_timeseries(sentiment_time)
-except Exception e:
+except Exception as e:
     print(f'An error has occured: {e}')
