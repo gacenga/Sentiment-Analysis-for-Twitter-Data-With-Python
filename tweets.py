@@ -15,4 +15,4 @@ def collect_tweets(query, count=90):
         df = pd.DataFrame(tweet_data, columns=['text', 'time_created', 'user'])
         return df
     except Exception as e:
-        print(f'An error has occured {e}')
+        print(f'An error has occured: {e}')
