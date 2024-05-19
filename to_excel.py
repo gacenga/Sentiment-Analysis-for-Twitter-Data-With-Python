@@ -3,7 +3,7 @@ from openpyxl.drawing.image import Image
 import os
 
 def to_excel(path, cell_no):
-    ***Saves visualizations into an excel file***
+    """Saves visualizations into an excel file"""
     excel = 'sentiment_plots.xlsx'
     if os.path.exists(excel):
         workbook = load_workbook(excel)
