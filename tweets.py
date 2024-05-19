@@ -4,10 +4,10 @@ import tweepy
 def collect_tweets(query, count=90):
     """collects tweets from x.com based on specified query"""
     try:
-        consumer_key = 'BZSnsRgJsaqU8jdiYpdovr4dg'
-        consumer_secret = 'iJsAycQ9SXztmvdOTzy7pqYhZ7kS342lsx9fCd9pMdlgwLaupQ'
-        access_token = '1409944852645789698-sbrVkKIPUcUkYVlTMOTeVy92tut8Dz'
-        access_token_secret = 'DSQcncPKff5UviVkzUIdOyJbaIx3li6taa2PbSeqvaoK6'
+        consumer_key = 'your consumer key'
+        consumer_secret = 'your consumer secret api key'
+        access_token = 'your access token'
+        access_token_secret = 'your secret access token'
         auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token, access_token_secret)
         api = tweepy.API(auth)
         tweets = tweepy.Cursor(api.search_tweets, q=query, lang="en", tweet_mode="extended").items(count)
