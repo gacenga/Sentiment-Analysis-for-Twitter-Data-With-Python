@@ -18,4 +18,4 @@ def to_excel(path, cell_no):
     sheet.add_image(img)
 
     #Save excel file
-    workbook.save(excel)os
+    workbook.save(excel)
