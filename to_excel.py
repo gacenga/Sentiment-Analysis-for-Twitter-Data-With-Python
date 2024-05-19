@@ -2,7 +2,7 @@ from openpyxl import Workbook, load_workbook
 from openpyxl.drawing.image import Image
 import os
 
-def to_excel(path, cell_no):
+def to_excel(png_path, html_path):
     """Saves visualizations into an excel file"""
     excel = 'sentiment_plots.xlsx'
     if os.path.exists(excel):
@@ -12,10 +12,13 @@ def to_excel(path, cell_no):
         workbook.active.title = "sentiment_plots"
     sheet = workbook.active
 
-    #Insert image into the sheet
-    img = Image(path)
-    img.anchor = cell_no
-    sheet.add_image(img)
+    #Insert images and links into the sheet
+    img = Image(png_path)
+    cell = f'A{1 + (i * 20)}'
+    sheet.add_image(img, cell)
+    sheet[f'A{2 + (i * 20)}'] = f'Interactive Plot {i + 1}'
+    sheet[f'A{2 + (i * 20)}'].hyperlink = html_path
+    sheet[f'A{2 + (i * 20)}'].style = "Hyperlink"
 
     #Save excel file
     workbook.save(excel)
