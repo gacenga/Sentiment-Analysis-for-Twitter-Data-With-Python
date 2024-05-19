@@ -3,24 +3,24 @@ import seaborn as sns
 import to_excel
 
 def sentiment_distribution(dataframe):
-    """creates histogram and saves it into an excel file"""
-    sns.countplot(x='sentiment', data=dataframe)
-    plt.title('sentiment distribution for tweets')
-    plt.xlabel('sentiment')
-    plt.ylabel('Number of Tweets')
-    plot_filename = 'sent_dist.png'
-    plt.savefig(plot_filename)
-    plt.close()
-    to_excel.to_excel(plot_filename, 'E5')
-
+    """creates a histogram for the sentiment distribution and saves it in excel"""
+    fig = px.histogram(dataframe, x='sentiment', title='Sentiment Distribution for Tweets')
+    plot_filename_png = 'senti_dist.png'
+    plot_filename_html = 'senti_dist.html'
+    fig.write_image(plot_filename_png)
+    fig.write_image(plot_filename_html)
+    to_excel.to_excel(plot_filename_png, plot_filename_html)
+    
 def sentiment_timeseries(sentiment_time):
-    """creates time series of sentiment over time and saves it in an excel file"""
-    sentiment_time.plot(kind='line', figsize=(12, 6))
-    plt.title('Sentiment over Time')
-    plt.xlabel('time')
-    plt.ylabel('Number of Tweets')
-    plot_filename = 'sent_timeseries.png'
-    plt.savefig(plot_filename)
-    plt.close()
+    """creates a time series for sentiment over time and saves it in excel"""
+    fig = go.Figure()
+    for sentiment in sentiment_time.columns:
+        fig.add_trace(go.Scatter(x=sentiment_time.index, y=sentiment_time[sentiment], mode='lines', name=sentiment))
+    fig.update_layout(title='Sentiment over Time', xaxis_title='Time', yaxia_title='Number of Tweets'
+    plot_filename_png = 'senti_timeseries.png'
+    plot_filename_html = 'senti_timeseries.html'
+    fig.write_image(plot_filename_png)
+    fig.write_image(plot_filename_html)
+    to_excel.to_excel(plot_filename_png, plot_filename_html)
     to_excel.to_excel(plot_filename, 'E20')
     
