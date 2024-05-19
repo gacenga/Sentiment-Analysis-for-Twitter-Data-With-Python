@@ -16,7 +16,7 @@ def sentiment_timeseries(sentiment_time):
     fig = go.Figure()
     for sentiment in sentiment_time.columns:
         fig.add_trace(go.Scatter(x=sentiment_time.index, y=sentiment_time[sentiment], mode='lines', name=sentiment))
-    fig.update_layout(title='Sentiment over Time', xaxis_title='Time', yaxia_title='Number of Tweets'
+    fig.update_layout(title='Sentiment over Time', xaxis_title='Time', yaxis_title='Number of Tweets')
     plot_filename_png = 'senti_timeseries.png'
     plot_filename_html = 'senti_timeseries.html'
     fig.write_image(plot_filename_png)
