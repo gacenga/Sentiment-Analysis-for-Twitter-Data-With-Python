@@ -9,7 +9,7 @@ def sentiment_distribution(dataframe):
     plot_filename_html = 'senti_dist.html'
     fig.write_image(plot_filename_png)
     fig.write_image(plot_filename_html)
-    to_excel.to_excel(plot_filename_png, plot_filename_html)
+    return plot_filename_png, plot_filename_html
     
 def sentiment_timeseries(sentiment_time):
     """creates a time series for sentiment over time and saves it in excel"""
@@ -21,6 +21,5 @@ def sentiment_timeseries(sentiment_time):
     plot_filename_html = 'senti_timeseries.html'
     fig.write_image(plot_filename_png)
     fig.write_image(plot_filename_html)
-    to_excel.to_excel(plot_filename_png, plot_filename_html)
-    to_excel.to_excel(plot_filename, 'E20')
+    return plot_filename_png, plot_filename_html
     
