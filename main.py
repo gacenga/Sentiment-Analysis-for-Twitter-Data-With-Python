@@ -31,7 +31,7 @@ root.title("Sentiment Analysis")
 
 #Create and place keword entry widget
 keyword_label = tk.Label(root, text="Enter keyword to search tweets:")
-kwyword_label.pack(pady=5)
+keyword_label.pack(pady=5)
 keyword_entry = tk.Entry(root, width=50)
 keyword_entry.pack(pady=5)
 
