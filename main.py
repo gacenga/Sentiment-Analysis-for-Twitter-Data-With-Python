@@ -6,7 +6,7 @@ import to_excel
 import tkinter as tk
 from tkinter import messagebox
 
-def analyze()
+def analyze():
     try:
         keyword = keyword_entry.get().strip()
         tweet = tweets.collect_tweets(keyword, 20)
